@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Acceuil</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel='stylesheet' type='text/css' media='screen' href='style/style.css'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<div id="container">
+		<div id="bg"></div>
+		<header>
+			<div class="content">
+				<img src="img/icon.png" id="logo">
+
+				<div id="search">
+					<input type="search" name="search" placeholder="Rechercher">
+
+					<img src="img/icons/search.svg">
+				</div>
+			</div>
+		</header>
+		<div class="content" id="main-content">
+			<section>
+				<div id="main-description">
+					<h1>Bienvenue aux restaurants uOttawa</h1>
+					<h2>Déguster et régaler en famille</h2>
+				</div>
+				<div id="main-info">
+					<div id="select-criterias">
+						<div class="selection">
+							<h1>Veuillez choisir une ville</h1>
+
+							<div id="cities">
+								<input type="radio" name="city" value="ottawa"> Ottawa, Ontario, Canada<br>
+								<input type="radio" name="city" value="montreal"> Montréal, Québec, Canada<br>
+								<input type="radio" name="city" value="toronto"> Toronto, Ontario, Canada<br>
+								<input type="radio" name="city" value="beijing"> Beijing, Chine<br>
+								<input type="radio" name="city" value="tokyo"> Tokyo, Japon<br>
+								<input type="radio" name="city" value="new-york"> New York City, New York, USA<br>
+							</div>
+						</div>
+						<div class="selection">
+							<h1>Veuillez choisir un type de repas</h1>
+
+							<div id="type-repas">
+								<input type="checkbox" name="petit-dejeuner" value="petit-dejeuner"> Petit déjeuner<br>
+								<input type="checkbox" name="lunch" value="montreal"> Lunch<br>
+								<input type="checkbox" name="diner" value="toronto"> Dîner<br>
+								<input type="checkbox" name="emporter" value="beijing"> À emporter<br>
+								<input type="checkbox" name="boissons" value="tokyo"> Boissons<br>
+							</div>
+						</div>
+					</div>
+					<a href="/layout/restaurant.html">
+						<p class="button">Accéder les restaurant</p>
+					</a>
+				</div>
+			</section>
+		</div>
+		<footer>
+			<div class="content">
+				<p>
+					<b>SEG 3525</b> - Ce site web n'est pas affilié avec l'Université d'Ottawa
+				</p>
+				<p>
+					Hébergé sur
+					<a href="https://github.com/BenJeau/SEG3525-Lab">
+						GitHub
+						<i class="fa fa-github"></i>
+					</a>
+				</p>
+			</div>
+		</footer>
+	</div>
+</body>
+
+</html>
