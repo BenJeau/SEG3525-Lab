@@ -203,3 +203,110 @@ div .content {
 #hebergement {
 	text-align: right;
 }
+
+/*** RESTAURANTS ***/
+#restaurant-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.restaurant-card {
+    flex: 1 0 45%;
+    min-width: 350px;
+    width: auto;
+    height: 500px;
+    background-color: white;
+    color: #252525;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: #3b3b3b 1px 1px 10px;
+    transition: transform 0.2s ease;
+}
+
+.restaurant-card:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.restaurant-image {
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+    height: 275px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+}
+
+#image1 {
+    background-image: linear-gradient(transparent, black), url("../img/restaurants/restaurant1.jpg");
+}
+
+#image2 {
+    background-image: linear-gradient(transparent, black), url("../img/restaurants/restaurant2.jpg");
+}
+
+#image3 {
+    background-image: linear-gradient(transparent, black), url("../img/restaurants/restaurant3.jpg");
+}
+
+.restaurant-image-info {
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.restaurant-image-info .address {
+    font-size: 1.5em;
+    padding-right: 15px;
+}
+
+.restaurant-info {
+    padding: 10px;
+    height: calc(100% - 290px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.restaurant-ratings {
+    display: flex;
+    align-items: center;
+}
+
+.num-ratings {
+    padding-left: 5px;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.restaurant-type {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+}
+
+.type-cuisine {
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    border-radius: 15px;
+    padding: 0 15px;
+    box-shadow: #3b3b3b 0px 1px 3px;
+    background-color: #962e2e;
+    color: white;
+}
+
+.restaurant-hours {
+    display: flex;
+    justify-content: space-around;
+}
+
+.restaurant-hours .hours {
+    font-weight: 600;
+    text-align: right;
+}
