@@ -211,6 +211,10 @@ div .content {
     justify-content: space-between;
 }
 
+.restaurant-description {
+    margin-bottom: 20px !important;
+}
+
 .restaurant-card {
     flex: 1 0 45%;
     min-width: 350px;
