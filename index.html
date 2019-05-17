@@ -15,7 +15,9 @@
 		<div id="bg"></div>
 		<header>
 			<div class="content">
-				<img src="img/icon.png" id="logo">
+				<a href="/">
+					<img src="img/icon.png" id="logo">
+				</a>
 
 				<div id="search">
 					<input type="search" name="search" placeholder="Rechercher">
@@ -24,44 +26,42 @@
 				</div>
 			</div>
 		</header>
-		<div class="content" id="main-content">
-			<section>
-				<div id="main-description">
-					<h1>Bienvenue aux restaurants uOttawa</h1>
-					<h2>Déguster et régaler en famille</h2>
-				</div>
-				<div id="main-info">
-					<div id="select-criterias">
-						<div class="selection">
-							<h1>Veuillez choisir une ville</h1>
+		<section class="content" id="main-content">
+			<div id="main-description">
+				<h1>Bienvenue aux restaurants uOttawa</h1>
+				<h2>Déguster et régaler en famille</h2>
+			</div>
+			<div id="main-info">
+				<div id="select-criterias">
+					<div class="selection">
+						<h1>Veuillez choisir une ville</h1>
 
-							<div id="cities">
-								<input type="radio" name="city" value="ottawa"> Ottawa, Ontario, Canada<br>
-								<input type="radio" name="city" value="montreal"> Montréal, Québec, Canada<br>
-								<input type="radio" name="city" value="toronto"> Toronto, Ontario, Canada<br>
-								<input type="radio" name="city" value="beijing"> Beijing, Chine<br>
-								<input type="radio" name="city" value="tokyo"> Tokyo, Japon<br>
-								<input type="radio" name="city" value="new-york"> New York City, New York, USA<br>
-							</div>
-						</div>
-						<div class="selection">
-							<h1>Veuillez choisir un type de repas</h1>
-
-							<div id="type-repas">
-								<input type="checkbox" name="petit-dejeuner" value="petit-dejeuner"> Petit déjeuner<br>
-								<input type="checkbox" name="lunch" value="montreal"> Lunch<br>
-								<input type="checkbox" name="diner" value="toronto"> Dîner<br>
-								<input type="checkbox" name="emporter" value="beijing"> À emporter<br>
-								<input type="checkbox" name="boissons" value="tokyo"> Boissons<br>
-							</div>
+						<div id="cities">
+							<input type="radio" name="city" value="ottawa"> Ottawa, Ontario, Canada<br>
+							<input type="radio" name="city" value="montreal"> Montréal, Québec, Canada<br>
+							<input type="radio" name="city" value="toronto"> Toronto, Ontario, Canada<br>
+							<input type="radio" name="city" value="beijing"> Beijing, Chine<br>
+							<input type="radio" name="city" value="tokyo"> Tokyo, Japon<br>
+							<input type="radio" name="city" value="new-york"> New York City, New York, USA<br>
 						</div>
 					</div>
-					<a href="/layout/restaurant.html">
-						<p class="button">Accéder les restaurant</p>
-					</a>
+					<div class="selection">
+						<h1>Veuillez choisir un type de repas</h1>
+
+						<div id="type-repas">
+							<input type="checkbox" name="petit-dejeuner" value="petit-dejeuner"> Petit déjeuner<br>
+							<input type="checkbox" name="lunch" value="montreal"> Lunch<br>
+							<input type="checkbox" name="diner" value="toronto"> Dîner<br>
+							<input type="checkbox" name="emporter" value="beijing"> À emporter<br>
+							<input type="checkbox" name="boissons" value="tokyo"> Boissons<br>
+						</div>
+					</div>
 				</div>
-			</section>
-		</div>
+				<a href="/layout/restaurant.html">
+					<p class="button">Accéder les restaurant</p>
+				</a>
+			</div>
+		</section>
 		<footer>
 			<div class="content">
 				<p>
