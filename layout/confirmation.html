@@ -22,6 +22,37 @@
         </header>
 
         <section class="content" id="main-content">
+			<div id="main-description" class="confirm-paiement">
+				<h1>Confirmation de paiement</h1>
+				<h2>Votre total est de <b>104.52$</b></h2>
+			</div>
+			<div id="main-info">
+				<div id="select-criterias">
+					<div class="selection">
+						<h1>Méthode de paiement</h1>
+
+						<div>
+							<input type="radio" name="city" value="credit"> Crédit<br>
+							<input type="radio" name="city" value="debit"> Débit<br>
+							<input type="radio" name="city" value="cash"> Cash à la livraison<br>
+						</div>
+					</div>
+					<div class="selection">
+						<h1>Addresse de livraison</h1>
+
+						<div id="address-fields">
+							Numéro de rue : <input type="search" name="numeroRue" placeholder=""> <br>
+							Nom de rue : <input type="search" name="nomRue" placeholder=""> <br>
+							Ville : <input type="search" name="ville" placeholder=""> <br>
+							Code postal : <input type="search" name="codePostal" placeholder=""> <br>
+							Pays : <input type="search" name="pays" placeholder=""> <br>
+						</div>
+					</div>
+				</div>
+				<a href="/layout/restaurant.html">
+					<p class="button">Confirmer le paiement</p>
+				</a>
+			</div>
         </section>
 
         <footer>

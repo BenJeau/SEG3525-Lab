@@ -110,6 +110,10 @@ header .content {
     border: 0
 }
 
+#search input:focus {
+	outline: none;
+}
+
 #select-criterias {
     display: flex;
     flex-wrap: wrap;
@@ -315,4 +319,24 @@ div .content {
 .restaurant-hours .hours {
     font-weight: 600;
     text-align: right;
+}
+
+/*** CONFIRMATION ***/
+.confirm-paiement {
+	margin-bottom: 5vh !important;
+}
+
+#address-fields input {
+	background-color: transparent;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-bottom: 1px solid #dddddd;
+	transition: border 0.2s ease;
+	color: white;
+}
+
+#address-fields input:focus {
+	border-bottom: 2px solid #dddddd;
+	outline: none;
 }
