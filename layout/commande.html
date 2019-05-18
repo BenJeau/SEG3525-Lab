@@ -7,7 +7,18 @@
     <title>Commande</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='../style/style.css'>
+    <style>
+        td{
+            padding: 10px 40px 10px 0px;
+            text-align: left;
+        }
+        tr.total-row > td{
+            border-top: 1px solid;
+        }
+        .confirm-command{
 
+        }
+    </style>
 </head>
 
 <body>
@@ -21,7 +32,50 @@
             </div>
         </header>
 
-        <section class="content" id="main-content">
+        <section class="content" >
+            <div id="main-description" class="confirm-command">
+                <h1>Confirmation de la commande</h1>
+            </div>   
+            <div id="main-info">
+                <div id="select-criterias">
+                    
+                    <div class="selection">
+                        <h1>Facture</h1>
+
+                        <div id="address-fields">
+                            <table>
+                                <tr>
+                                    <th align="left"> Plats </th>
+                                    <th> Prix </th>
+                                </tr>
+                                <tr>
+                                    <td>Korean Chicken (2) </td>
+                                    <td>44 00$</td>
+                                </tr>
+                                <tr>
+                                    <td>Yougurt sans sucre  </td>
+                                    <td>15.00 $</td>
+                                </tr>
+                                <tr>
+                                    <td>Hamburger au boeuf </td>
+                                    <td>18.00 $</td>
+                                </tr>
+                                <tr>
+                                    <td>Ice Cream Sunday </td>
+                                    <td>15.50 $</td>
+                                </tr>
+                                <tr  class="total-row ">
+                                    <td >Total : </td>
+                                    <td>92.50$</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <a href="/layout/confirmation.html">
+                    <p class="button">Confirmer l'achat</p>
+                </a>
+            </div>
         </section>
 
         <footer>
