@@ -7,7 +7,12 @@
     <title>Confirmation de paiment</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='../style/style.css'>
-
+    <style>
+        .form-input{
+            padding: 6px 12px;
+            border-radius: 30px;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,8 +27,76 @@
         </header>
 
         <section class="content" id="main-content">
-        </section>
+            <div id="main-info">
+                <div id="select-criterias">
+                    <div class="selection">
+                        <h1>Methode de paiement</h1>
 
+                        <div id="cities">
+                            <input type="radio" name="city" value="ottawa"> Credit<br>
+                            <input type="radio" name="city" value="montreal"> Debit<br>
+                            <input type="radio" name="city" value="toronto"> Cash à la livraison<br>
+                            
+                        </div>
+                    </div>
+                    <div class="selection">
+                        <h1>Addresse de livraison</h1>
+
+                        <div id="Form">
+                            <table>
+                                <tr>
+                                    <td> Numero de la rue : </td>
+                                    <td> <input type="text" class="form-input" name="Numero" > </td>
+                                </tr>
+                                <tr>
+                                    <td> Nom de la rue :</td>
+                                    <td> <input type="text" class="form-input" name="Nom" > </td>
+                                </tr>
+                                <tr>
+                                    <td>Ville :</td>
+                                    <td> <input type="text" class="form-input" name="Ville" ></td>
+                                </tr>
+                                <tr>
+                                    <td>Pays :</td>
+                                    <td> <input type="text" class="form-input" name="pays" ></td>
+                                </tr>
+                                <tr>
+                                    <td>  Code postal :</td>
+                                    <td> <input type="text" class="form-input" name="code" ></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="confirm-box"  style="display: inline" >
+                    <div style="color: white; margin-left:1.2em ">
+                        <table>
+                            <tr>
+                                <td>Total sans tax : </td>
+                                <td>100 $</td>
+                            </tr>
+                            <tr>
+                                <td>Tax : </td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <td>Total : </td>
+                                <td>110 $</td>
+                            </tr>
+                        </table>
+                    </div>
+                        
+                    <br>
+                    <a class="button" href="/layout/restaurant.html">
+                       Confirmer le payement
+                    </a>
+
+                </div>
+                
+        </section>
+        
         <footer>
             <div class="content">
                 <p>
