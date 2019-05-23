@@ -14,75 +14,75 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            
-        }
+		}
+		
         .plate{
             margin: 10px 10px 10px 10px;
-            width: 400px;
-            box-shadow: 0px 3px 6px;
-            background-color: rgb(64, 63, 76);
-            border-radius: 30px;
+            width: 270px;
+			box-shadow: #3b3b3b 1px 1px 10px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 5px;
             font-weight: 600;
-           
+			transition: transform 0.2s ease;
         }
         .plate:hover{
             transform: scale(1.02);
-            transition: 0.5s;
             cursor: pointer;
         }
         .plate-info{
             display: flex;
             width: 100%;
-           
-           
-        }
+		}
+		.plate-info h5 {
+			font-weight: bold;
+		}
+		.plate img {
+			border-radius: 5px 5px 0 0;
+            width: 270px;
+		}
         .main-content{
             text-align: center;
             margin:20px 10px 0px 10px;
         }
-        body{
-           
-            background-image: url("../img/menuBG.jpg");
-            
-           
-        }
-    
         .number {
             position: relative;
             left: 50%;
             top: -52px;
             z-index: 1;
             background: rgb(204, 35, 17);
+			box-shadow: #3b3b3b90 1px 1px 5px;
             border-radius: 65%;
             height: 20px;
             width: 20px;
-            color: white;
-            text-align: center;
-        }
+			color: white;
+			font-weight: 600;
+			text-align: center;
+		}
        
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <div id="container">
+		<div id="bg"></div>
         <header>
                 <div class="content">
                     <img src="../img/icon.png" id="logo">
                     <div id="cart">
                         <a href="commande.html">
                             <input type="image" src="../img/icons/shopping-cart.svg" width="45" hr >
-                            <div class="number" ></div>
+                            <div class="number">
+								<p>2</p>
+							</div>
                         </a>
-                        
                     </div>
-
                 </div>
         </header>
 
-        <div class="main-content" >
+        <div class="content" id="main-content" >
             <div id="plates-infos">
                     <div class="plate">
-                            <img  src="../img/Food/yogurt.jpg" alt="yougurt" height="300px" width="400px">
+                            <img  src="../img/Food/yogurt.jpg" alt="yougurt">
                             <div class="plate-info">
                                 <div style="width:50%; padding-left:10px; text-align: left">
                                     <h4>Yougurt sans sucre </h4>
@@ -94,7 +94,7 @@
                     </div>
 
                     <div class="plate">
-                            <img  src="../img/Food/Pizza.jpg" alt="Pizza" height="300px" width="400px">
+                            <img  src="../img/Food/Pizza.jpg" alt="Pizza">
                             <div class="plate-info">
                                 <div style="width:50%; padding-left:10px; text-align: left">
                                     <h4>Pizza au annas</h4>
@@ -106,7 +106,7 @@
                     </div>
 
                     <div class="plate">
-                            <img  src="../img/Food/hamburger.jpg" alt="Hamburger" height="300px" width="400px">
+                            <img  src="../img/Food/hamburger.jpg" alt="Hamburger">
                             <div class="plate-info">
                                 <div style="width:50%; padding-left:10px; text-align: left">
                                     <h4>Hamburger au boeuf</h4>
@@ -118,7 +118,7 @@
                     </div>
 
                     <div class="plate">
-                            <img  src="../img/Food/chicken.jpg" alt="Chicken" height="300px" width="400px">
+                            <img  src="../img/Food/chicken.jpg" alt="Chicken">
                             <div class="plate-info">
                                 <div style="width:50%; padding-left:10px; text-align: left">
                                     <h4>Korean Fried Chicken</h4>
@@ -130,7 +130,7 @@
                     </div>
 
                     <div class="plate">
-                            <img  src="../img/Food/IceCream.jpg"  alt="Ice Cream" height="300px" width="400px">
+                            <img  src="../img/Food/IceCream.jpg"  alt="Ice Cream">
                             <div class="plate-info">
                                 <div style="width:50%; padding-left:10px; text-align: left">
                                     <h4>Ice Cream Sunday</h4>
