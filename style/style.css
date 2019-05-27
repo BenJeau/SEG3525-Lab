@@ -131,7 +131,8 @@ header .content {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 20px;
+	padding: 20px;
+	min-width: 200px;
 }
 
 .selection h1 {
@@ -140,6 +141,24 @@ header .content {
 
 .selection div {
     color: white;
+}
+
+#commentaire {
+	flex-basis: 100%;
+}
+
+#commentaire textarea {
+	background-color: #ffffff50;
+	border-color: #ffffff;
+	border-radius: 5px;
+	resize: none;
+	color: white;
+    transition: background-color 0.2s ease;
+}
+
+#commentaire textarea:focus {
+	outline: none;
+	background-color: #ffffff30;
 }
 
 div .content {
