@@ -6,7 +6,11 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Liste de restaurants</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../style/style.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='../style/style.css'>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+	<script src="../js/restaurant.js"></script>
 </head>
 
 <body>
@@ -25,131 +29,7 @@
                 <h1>Voici les résultats de votre recherche</h1>
                 <h2>Vous pouvez cliquer sur un des endroit pour faire une commande</h2>
 			</div>
-            <div id="restaurant-cards">
-                <a class="restaurant-card" href="/layout/menu.html">
-                    <div class="restaurant-image" id="image1">
-                        <div class="restaurant-image-info">
-                            <p class="address">81 Metcalfe Street</p>
-                            <p class="price">10$ - 25$</p>
-                        </div>
-                    </div>
-                    <div class="restaurant-info">
-                        <div class="restaurant-ratings">
-                            <img src="../img/stars/full-star.svg">
-                            <img src="../img/stars/full-star.svg">
-                            <img src="../img/stars/full-star.svg">
-                            <img src="../img/stars/half-star.svg">
-                            <img src="../img/stars/empty-star.svg">
-                            <p class="num-ratings">6</p>
-                        </div>
-                        <div class="restaurant-hours">
-                            <div class="weekdays">
-                                <p>Lundi</p>
-                                <p>Mardi</p>
-                                <p>Mercredi</p>
-                                <p>Jeudi</p>
-                                <p>Vendredi</p>
-                                <p>Samedi et dimanche</p>
-                            </div>
-                            <div class="hours">
-                                <p>11h - 18h</p>
-                                <p>10h - 17h</p>
-                                <p>10h - 17h</p>
-                                <p>9h - 17h</p>
-                                <p>11h - 17h</p>
-                                <p>8h - 20h</p>
-                            </div>
-                        </div>
-                        <div class="restaurant-type">
-                            <div class="type-cuisine">Américain</div>
-                            <div class="type-cuisine">Végétarien</div>
-                            <div class="type-cuisine">Végétalien</div>
-                        </div>
-                    </div>
-                </a>
-                
-                <a class="restaurant-card" href="/layout/menu.html">
-                    <div class="restaurant-image" id="image2">
-                        <div class="restaurant-image-info">
-                            <p class="address">14 Byward Market Square</p>
-                            <p class="price">20$ - 35$</p>
-                        </div>
-                    </div>
-                    <div class="restaurant-info">
-                        <div class="restaurant-ratings">
-                            <img src="../img/stars/full-star.svg">
-                            <img src="../img/stars/half-star.svg">
-                            <img src="../img/stars/empty-star.svg">
-                            <img src="../img/stars/empty-star.svg">
-                            <img src="../img/stars/empty-star.svg">
-                            <p class="num-ratings">3</p>
-                        </div>
-                        <div class="restaurant-hours">
-                            <div class="weekdays">
-                                <p>Lundi</p>
-                                <p>Mardi</p>
-                                <p>Mercredi</p>
-                                <p>Jeudi</p>
-                                <p>Vendredi</p>
-                                <p>Samedi et dimanche</p>
-                            </div>
-                            <div class="hours">
-                                <p>9h - 17h</p>
-                                <p>11h - 18h</p>
-                                <p>10h - 17h</p>
-                                <p>8h - 20h</p>
-                                <p>11h - 17h</p>
-                                <p>10h - 17h</p>
-                            </div>
-                        </div>
-                        <div class="restaurant-type">
-                            <div class="type-cuisine">Koréan</div>
-                            <div class="type-cuisine">Végétarien</div>
-                        </div>
-                    </div>
-                </a>
-                <a class="restaurant-card" href="/layout/menu.html">
-                    <div class="restaurant-image" id="image3">
-                        <div class="restaurant-image-info">
-                            <p class="address">80 George Street</p>
-                            <p class="price">5$ - 30$</p>
-                        </div>
-                    </div>
-                    <div class="restaurant-info">
-                        <div class="restaurant-ratings">
-                            <img src="../img/stars/full-star.svg">
-                            <img src="../img/stars/full-star.svg">
-                            <img src="../img/stars/full-star.svg">
-                            <img src="../img/stars/full-star.svg">
-                            <img src="../img/stars/empty-star.svg">
-                            <p class="num-ratings">27</p>
-                        </div>
-                        <div class="restaurant-hours">
-                            <div class="weekdays">
-                                <p>Lundi</p>
-                                <p>Mardi</p>
-                                <p>Mercredi</p>
-                                <p>Jeudi</p>
-                                <p>Vendredi</p>
-                                <p>Samedi et dimanche</p>
-                            </div>
-                            <div class="hours">
-                                <p>11h - 18h</p>
-                                <p>11h - 17h</p>
-                                <p>8h - 20h</p>
-                                <p>10h - 17h</p>
-                                <p>9h - 17h</p>
-                                <p>10h - 17h</p>
-                            </div>
-                        </div>
-                        <div class="restaurant-type">
-                            <div class="type-cuisine">Canadien</div>
-                            <div class="type-cuisine">Américain</div>
-                            <div class="type-cuisine">Végétalien</div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            <div id="restaurant-cards"></div>
         </section>
 
         <footer>

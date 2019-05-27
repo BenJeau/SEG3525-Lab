@@ -1,7 +1,8 @@
 [
 	{
+		"id": "metcalfe",
 		"address": "81 Metcalfe Street",
-		"price-range": "10$ - 25$",
+		"price_range": "10$ - 25$",
 		"ratings": [
 			3,
 			4,
@@ -18,18 +19,19 @@
 			"Vendredi": "11h - 17h",
 			"Samedi et dimanche": "8h - 20h"
 		},
-		"type": [
+		"types": [
 			"Américain",
 			"Végétarien",
 			"Végétalien"
 		]
 	},
 	{
+		"id": "byward",
 		"address": "14 Byward Market Square",
-		"price-range": "20$ - 35$",
+		"price_range": "20$ - 35$",
 		"ratings": [
 			3,
-			5,
+			2,
 			1,
 			1
 		],
@@ -41,14 +43,15 @@
 			"Vendredi": "11h - 17h",
 			"Samedi et dimanche": "10h - 17h"
 		},
-		"type": [
+		"types": [
 			"Koréan",
 			"Végétarien"
 		]
 	},
 	{
+		"id": "george",
 		"address": "80 George Street",
-		"price-range": "5$ - 30$",
+		"price_range": "5$ - 30$",
 		"ratings": [
 			3,
 			4,
@@ -58,7 +61,6 @@
 			5,
 			2,
 			3,
-			1,
 			5,
 			5,
 			3,
@@ -74,7 +76,7 @@
 			"Vendredi": "9h - 17h",
 			"Samedi et dimanche": "10h - 17h"
 		},
-		"type": [
+		"types": [
 			"Canadien",
 			"Américain",
 			"Végétalien"
