@@ -1,0 +1,83 @@
+[
+	{
+		"address": "81 Metcalfe Street",
+		"price-range": "10$ - 25$",
+		"ratings": [
+			3,
+			4,
+			4,
+			3,
+			5,
+			2
+		],
+		"hours": {
+			"Lundi": "11h - 18h",
+			"Mardi": "10h - 17h",
+			"Mercredi": "10h - 17h",
+			"Jeudi": "9h - 17h",
+			"Vendredi": "11h - 17h",
+			"Samedi et dimanche": "8h - 20h"
+		},
+		"type": [
+			"Américain",
+			"Végétarien",
+			"Végétalien"
+		]
+	},
+	{
+		"address": "14 Byward Market Square",
+		"price-range": "20$ - 35$",
+		"ratings": [
+			3,
+			5,
+			1,
+			1
+		],
+		"hours": {
+			"Lundi": "9h - 17h",
+			"Mardi": "11h - 18h",
+			"Mercredi": "10h - 17h",
+			"Jeudi": "8h - 20h",
+			"Vendredi": "11h - 17h",
+			"Samedi et dimanche": "10h - 17h"
+		},
+		"type": [
+			"Koréan",
+			"Végétarien"
+		]
+	},
+	{
+		"address": "80 George Street",
+		"price-range": "5$ - 30$",
+		"ratings": [
+			3,
+			4,
+			5,
+			5,
+			5,
+			5,
+			2,
+			3,
+			1,
+			5,
+			5,
+			3,
+			4,
+			5,
+			4
+		],
+		"hours": {
+			"Lundi": "11h - 18h",
+			"Mardi": "11h - 17h",
+			"Mercredi": "8h - 20h",
+			"Jeudi": "10h - 17h",
+			"Vendredi": "9h - 17h",
+			"Samedi et dimanche": "10h - 17h"
+		},
+		"type": [
+			"Canadien",
+			"Américain",
+			"Végétalien"
+		]
+	}
+]
