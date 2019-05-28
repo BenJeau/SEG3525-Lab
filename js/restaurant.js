@@ -1,5 +1,5 @@
 $(document).ready(() => {
-	$.getJSON("../data/restaurants.json", (data) => {
+	$.getJSON("../data/restaurants.json", data => {
 		data.forEach((val, key) => {
 			let types = "";
 			let weekdays = "";
