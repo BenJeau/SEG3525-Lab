@@ -1,31 +1,31 @@
 [
     {
         "restaurant":"metcalfe",
-        "name":"Yougurt sans sucre",
+        "id":"Yougurt sans sucre",
         "price": "15.00",
         "img": "../img/Food/yogurt.jpg"
     },
     {
         "restaurant":"metcalfe",
-        "name":"Pizza au annas",
+        "id":"Pizza au annas",
         "price": "28.00",
         "img": "../img/Food/Pizza.jpg"
     },
     {
         "restaurant":"metcalfe",
-        "name":"Hamburger au boeuf",
+        "id":"Hamburger au boeuf",
         "price": "18.00",
         "img": "../img/Food/hamburger.jpg"
     },
     {
         "restaurant":"metcalfe",
-        "name":"Korean Fried Chicken",
+        "id":"Korean Fried Chicken",
         "price": "22.00",
         "img": "../img/Food/chicken.jpg"
     },
     {
         "restaurant":"metcalfe",
-        "name":"Ice Cream Sunday",
+        "id":"Ice Cream Sunday",
         "price": "15.50",
         "img": "../img/Food/IceCream.jpg"
     }
