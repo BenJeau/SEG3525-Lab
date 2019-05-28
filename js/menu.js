@@ -34,11 +34,21 @@ $(document).ready(() =>{
 });
 
 function Add(o){
-    var product = {
-        "name": o.name,
-        "price":o.value
+    var item = {
+        name: o.name,
+        price:o.value,
+        quantity : 0
     };
-    console.log(product);
+    var menuItemIndex = JSON.parse(localStorage.getItem("menuItemIndex"));
+    if(menuItemIndex != null){
+        menuItemIndex.push(item)
+    }else{
+        menuItemIndex = []
+        menuItemIndex.push(item)
+    }
+    
+   
+   localStorage.setItem("menuItemIndex", JSON.stringify(menuItemIndex));
 }
 
 
