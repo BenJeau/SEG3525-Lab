@@ -31,7 +31,10 @@ const updateCartNum = () => {
 	let numItems = "";
 
 	if (items) {
-		numItems = JSON.parse(localStorage.getItem("menuItemIndex")).length;
+		numItems = JSON.parse(localStorage.getItem("menuItemIndex")).reduce((acc, val) => {
+			acc += val.quantity;
+			return acc;
+		}, 0);
 	}
 
 	if (numItems == 0) $("#number").css("opacity", 0);
