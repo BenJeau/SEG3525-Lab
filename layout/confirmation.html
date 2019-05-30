@@ -2,83 +2,162 @@
 <html>
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Confirmation de paiment</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../style/style.css'>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Confirmation de paiment</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel='stylesheet' type='text/css' media='screen' href='../style/style.css'>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="../js/confirmation.js"></script>
 </head>
 
 <body>
-    <div id="container">
-        <div id="bg"></div>
-        <header>
-            <div class="content">
-                <a href="/">
-                    <img src="../img/icon.png" id="logo">
-                </a>
-            </div>
-        </header>
+	<div id="container">
+		<div id="bg"></div>
+		<header>
+			<div class="content">
+				<a href="/">
+					<img src="../img/icon.png" id="logo">
+				</a>
+			</div>
+		</header>
 
-        <section class="content" id="main-content">
+		<section class="content" id="main-content">
 
 			<div id="main-description" class="confirm-paiement">
 				<h1>Confirmation de paiement</h1>
 				<h2>Votre total est de <b>104.52$</b></h2>
 			</div>
 			<div id="main-info">
-				<div id="select-criterias">
-					<div class="selection">
-						<h1>Méthode de paiement</h1>
+				<form action="/">
+					<div id="select-criterias">
+						<div class="selection">
+							<h1>Méthode de paiement</h1>
 
-						<div>
-							
-							<input type="radio" name="city" value="credit"> Crédit<br>
-							<input type="radio" name="city" value="debit"> Débit<br>
-							<input type="radio" name="city" value="cash"> Cash à la livraison<br>
+							<div id="methode-paiement">
+								<div>
+									<input id="credit" type="radio" name="paiement" value="credit" checked>
+									<label for="credit">Crédit</label>
+								</div>
+								<div>
+									<input id="debit" type="radio" name="paiement" value="debit">
+									<label for="debit">Débit</label>
+								</div>
+								<div>
+									<input id="cash" type="radio" name="paiement" value="cash">
+									<label for="cash">Cash à la livraison</label>
+								</div>
+							</div>
+							<br>
+							<div id="paiement-fields" class="fields">
+								<div id="nomComplet">
+									<label>Nom complet :</label>
+									<input type="text" name="nomComplet" placeholder="">
+								</div>
+								<div id="numeroCarte">
+									<label>Numéro de carte :</label>
+									<input type="number" name="numeroCarte" placeholder="" min="0">
+								</div>
+								<div id="cvv">
+									<label>CVV :</label>
+									<input type="number" name="cvv" placeholder="" min="0" max="999" step="1">
+								</div>
+								<div id="date-expiration">
+									<label>Date d'expiration :</label>
+									<select name="mois">
+										<option value="01">Janvier</option>
+										<option value="02">Février</option>
+										<option value="03">Mars</option>
+										<option value="04">Avril</option>
+										<option value="05">Mai</option>
+										<option value="06" selected>Juin</option>
+										<option value="07">Juillet</option>
+										<option value="08">Août</option>
+										<option value="09">Septembre</option>
+										<option value="10">Octobre</option>
+										<option value="11">Novembre</option>
+										<option value="12">Décembre</option>
+									</select>
+									<select name="year">
+										<option value="19">2019</option>
+										<option value="20">2020</option>
+										<option value="21">2021</option>
+										<option value="22">2022</option>
+										<option value="23">2023</option>
+										<option value="24">2024</option>
+										<option value="25">2025</option>
+										<option value="26">2026</option>
+										<option value="27">2027</option>
+										<option value="28">2028</option>
+										<option value="29">2029</option>
+										<option value="30">2030</option>
+									</select>
+								</div>
+							</div>
+
+							<div id="cash-warning" style="display: none">
+								<p>Faite certain d'emporter votre argent lors de la commande</p>
+							</div>
+						</div>
+						<div class="selection">
+							<h1>Addresse de livraison</h1>
+
+							<div class="fields">
+								<div>
+									<label>Numéro de rue :</label>
+									<input type="number" name="numeroRue" placeholder="" min="1" required>
+								</div>
+
+								<div>
+									<label>Nom de rue :</label>
+									<input type="text" name="nomRue" placeholder="" required>
+								</div>
+
+								<div>
+									<label>Ville :</label>
+									<input type="text" name="ville" placeholder="" required>
+								</div>
+
+								<div>
+									<label>Code postal :</label>
+									<input type="text" name="codePostal" placeholder="" required>
+								</div>
+
+								<div>
+									<label>Pays :</label>
+									<input type="text" name="pays" placeholder="" required>
+								</div>
+							</div>
+						</div>
+						<div class="selection" id="commentaire">
+							<h1>Commentaire</h1>
+
+							<textarea name="commentaire" cols="40" rows="5"></textarea>
 						</div>
 					</div>
-					<div class="selection">
-						<h1>Addresse de livraison</h1>
-
-						<div id="address-fields">
-							Numéro de rue : <input type="search" name="numeroRue" placeholder=""> <br>
-							Nom de rue : <input type="search" name="nomRue" placeholder=""> <br>
-							Ville : <input type="search" name="ville" placeholder=""> <br>
-							Code postal : <input type="search" name="codePostal" placeholder=""> <br>
-							Pays : <input type="search" name="pays" placeholder=""> <br>
-						</div>
-					</div>
-					<div class="selection" id="commentaire">
-						<h1>Commentaire</h1>
-
-						<textarea name="Text1" cols="40" rows="5"></textarea>
-					</div>
-				</div>
-				<a href="/">
-					<p class="button">Confirmer le paiement</p>
-				</a>
+					<button type="submit" class="button">
+						<p>Confirmer le paiement</p>
+					</button>
 			</div>
-        </section>
+			</form>
+		</section>
 
-                
-
-        
-        <footer>
-            <div class="content">
-                <p>
-                    <b>SEG 3525</b> - Ce site web n'est pas affilié avec l'Université d'Ottawa
-                </p>
-                <p id="hebergement">
-                    Hébergé sur
-                    <a href="https://github.com/BenJeau/SEG3525-Lab">
-                        GitHub
-                        <i class="fa fa-github"></i>
-                    </a>
-                </p>
-            </div>
-        </footer>
-    </div>
+		<footer>
+			<div class="content">
+				<p>
+					<b>SEG 3525</b> - Ce site web n'est pas affilié avec l'Université d'Ottawa
+				</p>
+				<p id="hebergement">
+					Hébergé sur
+					<a href="https://github.com/BenJeau/SEG3525-Lab">
+						GitHub
+						<i class="fa fa-github"></i>
+					</a>
+				</p>
+			</div>
+		</footer>
+	</div>
 </body>
 
 </html>

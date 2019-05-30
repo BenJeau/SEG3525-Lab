@@ -13,6 +13,13 @@ a, p, h1, h2, h3, ul, li, div, button {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+button {
+	border: none;
+}
+button:focus {
+	outline: none;
+}
+
 a {
     text-decoration: none;
 }
@@ -141,6 +148,12 @@ header .content {
 
 .selection div {
     color: white;
+}
+
+#methode-paiement {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 #commentaire {
@@ -347,17 +360,18 @@ div .content {
 	margin-bottom: 5vh !important;
 }
 
-#address-fields input {
+.fields input {
 	background-color: transparent;
 	border-top: none;
 	border-right: none;
 	border-left: none;
 	border-bottom: 1px solid #dddddd;
-	transition: border 0.2s ease;
+	margin-bottom: 1px;
 	color: white;
 }
 
-#address-fields input:focus {
+.fields input:focus {
 	border-bottom: 2px solid #dddddd;
+	margin-bottom: 0px;
 	outline: none;
 }
