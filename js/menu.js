@@ -8,7 +8,7 @@ $(document).ready(() =>{
     $.getJSON("../data/menu.json", (data) => {
 		data.forEach((val, key) => {
 			if(val.restaurant == param){
-                var temp = val.id;
+                
                 $("#plates-infos").append(
                     `<div class="plate">
                             <img  src="${val.img}" >
@@ -34,21 +34,44 @@ $(document).ready(() =>{
 });
 
 function Add(o){
-    var item = {
-        name: o.name,
-        price:o.value,
-        quantity : 0
-    };
+
     var menuItemIndex = JSON.parse(localStorage.getItem("menuItemIndex"));
     if(menuItemIndex != null){
-        menuItemIndex.push(item)
+        var element = menuItemIndex.find((val) => val.id === o.name)
+        if(element != null){
+            var i =  menuItemIndex.indexOf(element);
+            var menucopy = menuItemIndex.filter((val)=> val.id !== o.name)
+            var item = {
+                id:element.id,
+                quantity :  element.quantity +1
+            };
+            menucopy.splice(i, 0, item)
+            localStorage.setItem("menuItemIndex", JSON.stringify(menucopy));
+        }else{
+            var item = {
+                id:o.name,
+                quantity : 0
+            };
+            menuItemIndex.push(item)
+            localStorage.setItem("menuItemIndex", JSON.stringify(menuItemIndex));
+        }
+        
+        
+        
+        
+       
     }else{
         menuItemIndex = []
+        var item = {
+            id: o.name,
+            quantity : 0
+        };
         menuItemIndex.push(item)
+        localStorage.setItem("menuItemIndex", JSON.stringify(menuItemIndex));
     }
     
    
-   localStorage.setItem("menuItemIndex", JSON.stringify(menuItemIndex));
+  
 }
 
 
