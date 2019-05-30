@@ -31,7 +31,7 @@ $(document).ready(() => {
 			}
 
 			$("#restaurant-cards").append(
-				`<a class="restaurant-card" href="/layout/menu.html#${val.id}">
+				`<a class="restaurant-card" onClick="setRestaurant(this)" name="${val.id}">
 					<div class="restaurant-image" id="image${key+1}">
 						<div class="restaurant-image-info">
 							<p class="address">${val.address}</p>
@@ -60,3 +60,9 @@ $(document).ready(() => {
 		});
 	});
 });
+
+const setRestaurant = (info) => {
+	localStorage.removeItem("menuItemIndex");
+	localStorage.setItem("restaurant", info.name);
+	window.location.href = "/layout/menu.html";
+}

@@ -1,7 +1,6 @@
 $(document).ready(() =>{
 	updateCartNum();
-    var url = window.location.href;
-    var param = url.split("#")[1];
+    var param = localStorage.getItem("restaurant");
 
     $.getJSON("../data/menu.json", (data) => {
 		data[param].forEach((val, key) => {

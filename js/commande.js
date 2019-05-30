@@ -3,7 +3,7 @@ $(document).ready(() => {
 	var menuItemIndex = localStorage.getItem("menuItemIndex");
 
 	if (restaurant && menuItemIndex) {
-		$.getJSON(`../data/${restaurant}.json`, data => {
+		$.getJSON(`../data/restaurants.json`, data => {
 			let name = "";
 			let amount = 0;
 			let price = "";
