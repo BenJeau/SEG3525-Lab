@@ -211,7 +211,7 @@ div .content {
     background-image: url("../img/other.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    filter: blur(10px);
+    filter: blur(25px);
     transform: scale(1.1)
 }
 
