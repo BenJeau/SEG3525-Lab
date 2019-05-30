@@ -169,6 +169,10 @@ header .content {
     transition: background-color 0.2s ease;
 }
 
+#commentaire textarea::placeholder {
+	color: #cccccc;
+}
+
 #commentaire textarea:focus {
 	outline: none;
 	background-color: #ffffff30;

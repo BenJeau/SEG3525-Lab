@@ -29,8 +29,8 @@
 				<h1>Confirmation de paiement</h1>
 				<h2>Votre total est de <b>104.52$</b></h2>
 			</div>
+			<form action="/">
 			<div id="main-info">
-				<form action="/">
 					<div id="select-criterias">
 						<div class="selection">
 							<h1>Méthode de paiement</h1>
@@ -53,15 +53,15 @@
 							<div id="paiement-fields" class="fields">
 								<div id="nomComplet">
 									<label>Nom complet :</label>
-									<input type="text" name="nomComplet" placeholder="">
+									<input type="text" name="nomComplet" placeholder="" minlength="2" title="Votre nom au complet (prénom et nom)">
 								</div>
 								<div id="numeroCarte">
 									<label>Numéro de carte :</label>
-									<input type="number" name="numeroCarte" placeholder="" min="0">
+									<input type="text" pattern="(\d{4}[-. ]?){4}|\d{4}[-. ]?\d{6}[-. ]?\d{5}" name="numeroCarte" placeholder="" min="0" title="Votre numéro de carte">
 								</div>
 								<div id="cvv">
 									<label>CVV :</label>
-									<input type="number" name="cvv" placeholder="" min="0" max="999" step="1">
+									<input type="number" name="cvv" placeholder="" min="0" max="999" step="1" title="Votre numéro secret de carte de crédit">
 								</div>
 								<div id="date-expiration">
 									<label>Date d'expiration :</label>
@@ -106,42 +106,42 @@
 							<div class="fields">
 								<div>
 									<label>Numéro de rue :</label>
-									<input type="number" name="numeroRue" placeholder="" min="1" required>
+									<input type="number" name="numeroRue" placeholder="" min="1" required title="Le numéro de rue de votre addresse">
 								</div>
 
 								<div>
 									<label>Nom de rue :</label>
-									<input type="text" name="nomRue" placeholder="" required>
+									<input type="text" name="nomRue" placeholder=""  minlength="2" required title="Le nom de votre rue de votre addresse">
 								</div>
 
 								<div>
 									<label>Ville :</label>
-									<input type="text" name="ville" placeholder="" required>
+									<input type="text" name="ville" placeholder=""  minlength="2" required  title="La ville de votre addresse">
 								</div>
 
 								<div>
 									<label>Code postal :</label>
-									<input type="text" name="codePostal" placeholder="" required>
+									<input type="text" name="codePostal" placeholder="" required pattern="[A-Za-z]\d[A-Za-z][ \-]?\d[A-Za-z]\d" title="Le code postal canadien de votre addresse, soit en lettre minuscule ou majuscule. Ex: a1b2c3, a1b-2c3, a1b 2c3">
 								</div>
 
 								<div>
 									<label>Pays :</label>
-									<input type="text" name="pays" placeholder="" required>
+									<input type="text" name="pays" placeholder="" required  minlength="2" title="Le pays de votre addresse">
 								</div>
 							</div>
 						</div>
 						<div class="selection" id="commentaire">
 							<h1>Commentaire</h1>
 
-							<textarea name="commentaire" cols="40" rows="5"></textarea>
+							<textarea name="commentaire" cols="40" rows="5" placeholder="Laissez une commantaire de votre commande ici" title="Laissez une commantaire de votre commande ici"></textarea>
 						</div>
 					</div>
 					<button type="submit" class="button">
 						<p>Confirmer le paiement</p>
 					</button>
 			</div>
-			</form>
 		</section>
+	</form>
 
 		<footer>
 			<div class="content">
