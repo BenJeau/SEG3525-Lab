@@ -44,7 +44,7 @@
             text-align: center;
             margin:20px 10px 0px 10px;
         }
-        .number {
+        #number {
             position: relative;
             left: 50%;
             top: -52px;
@@ -57,6 +57,8 @@
 			color: white;
 			font-weight: 600;
 			text-align: center;
+			opacity: 0;
+			transition: opacity 0.5s ease;
 		}
        
     </style>
@@ -77,8 +79,8 @@
                     <div id="cart">
                         <a href="commande.html">
                             <input type="image" src="../img/icons/shopping-cart.svg" width="45" hr >
-                            <div class="number">
-								<p>2</p>
+                            <div id="number">
+								<p></p>
 							</div>
                         </a>
                     </div>
