@@ -8,6 +8,9 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 	<link rel='stylesheet' type='text/css' media='screen' href='style/style.css'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="js/index.js"></script>
 </head>
 
 <body>
@@ -31,36 +34,71 @@
 				<h1>Bienvenue aux restaurants uOttawa</h1>
 				<h2>Déguster et régaler en famille</h2>
 			</div>
-			<div id="main-info">
-				<div id="select-criterias">
-					<div class="selection">
-						<h1>Veuillez choisir une ville</h1>
+			<form action="/layout/restaurant.html" id="index-form">
+				<div id="main-info">
+					<div id="select-criterias">
+						<div class="selection">
+							<h1>Veuillez choisir une ville</h1>
 
-						<div id="cities">
-							<input type="radio" name="city" value="ottawa"> Ottawa, Ontario, Canada<br>
-							<input type="radio" name="city" value="montreal"> Montréal, Québec, Canada<br>
-							<input type="radio" name="city" value="toronto"> Toronto, Ontario, Canada<br>
-							<input type="radio" name="city" value="beijing"> Beijing, Chine<br>
-							<input type="radio" name="city" value="tokyo"> Tokyo, Japon<br>
-							<input type="radio" name="city" value="new-york"> New York City, New York, USA<br>
+							<div id="cities">
+								<div>
+									<input type="radio" name="city" value="ottawa" id="ottawa" checked>
+									<label for="ottawa">Ottawa, Ontario, Canada</label>
+								</div>
+								<div>
+									<input type="radio" name="city" value="montreal" id="montreal">
+									<label for="montreal">Montréal, Québec, Canada</label>
+								</div>
+								<div>
+									<input type="radio" name="city" value="toronto" id="toronto">
+									<label for="toronto">Toronto, Ontario, Canada</label>
+								</div>
+								<div>
+									<input type="radio" name="city" value="beijing" id="beijing">
+									<label for="beijing">Beijing, Chine</label>
+								</div>
+								<div>
+									<input type="radio" name="city" value="tokyo" id="tokyo">
+									<label for="tokyo">Tokyo, Japon</label>
+								</div>
+								<div>
+									<input type="radio" name="city" value="new-york" id="new-york">
+									<label for="new-york">New York City, New York, USA</label>
+								</div>
+							</div>
+						</div>
+						<div class="selection">
+							<h1>Veuillez choisir un type de repas</h1>
+
+							<div id="type-repas">
+								<div>
+									<input type="checkbox" class="type-repas" name="petit-dejeuner" value="petit-dejeuner" id="petit-dejeuner">
+									<label for="petit-dejeuner">Petit déjeuner</label>
+								</div>
+								<div>
+									<input type="checkbox" class="type-repas" name="lunch" value="lunch" id="lunch">
+									<label for="lunch">Lunch</label>
+								</div>
+								<div>
+									<input type="checkbox" class="type-repas" name="diner" value="diner" id="diner">
+									<label for="diner">Dîner</label>
+								</div>
+								<div>
+									<input type="checkbox" class="type-repas" name="emporter" value="emporter" id="emporter">
+									<label for="emporter">À emporter</label>
+								</div>
+								<div>
+									<input type="checkbox" class="type-repas" name="boissons" value="boissons" id="boissons">
+									<label for="boissons">Boissons</label>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="selection">
-						<h1>Veuillez choisir un type de repas</h1>
-
-						<div id="type-repas">
-							<input type="checkbox" name="petit-dejeuner" value="petit-dejeuner"> Petit déjeuner<br>
-							<input type="checkbox" name="lunch" value="montreal"> Lunch<br>
-							<input type="checkbox" name="diner" value="toronto"> Dîner<br>
-							<input type="checkbox" name="emporter" value="beijing"> À emporter<br>
-							<input type="checkbox" name="boissons" value="tokyo"> Boissons<br>
-						</div>
-					</div>
+					<button type="submit" class="button">
+						<p>Accéder les restaurant</p>
+					</button>
 				</div>
-				<a href="/layout/restaurant.html">
-					<p class="button">Accéder les restaurant</p>
-				</a>
-			</div>
+			</form>
 		</section>
 		<footer>
 			<div class="content">
