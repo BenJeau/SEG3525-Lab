@@ -20,10 +20,10 @@ $(document).ready(() => {
 				var prix = el.price * val.quantity;
 				total = total+ prix;
 				$("#address-fields table").append(
-					`<tr>
-						<td>${plat}(${val.quantity})</td>
+					`<tr >
+						<td>${plat} (${val.quantity})</td>
 						<td>${prix}</td>
-						<td><button style="font-size:24px;color:white;background: transparent; border: none;"> <i class="fa fa-minus"></i></button></td>
+						<td><button onClick="Remove(this)" id="${plat}" value="${prix}" style="font-size:24px;color:white;background: transparent; border: none;"> <i class="fa fa-minus"></i></button></td>
 					</tr>`
 				)
 				
@@ -31,17 +31,27 @@ $(document).ready(() => {
 			$("#address-fields table").append(
 				`<tr class="total-row ">
 					<td >Total : </td>
-					<td>${total}$</td>
+					<td id="total">${total}$</td>
 				</tr>`
 			)
 			
 		});
 		
-		
-		
-		
 	
-		
 	}
 	
 });
+
+function Remove(o){
+	var menuItemIndex = JSON.parse(localStorage.getItem("menuItemIndex"));
+	var menucopy = menuItemIndex.filter((val)=> val.id !== o.id);
+	localStorage.setItem("menuItemIndex", JSON.stringify(menucopy));
+	o.closest('tr').remove();
+	var p = $("#total").html();
+	var total = parseInt(p,10);
+	var newTotal = total - parseInt(o.value, 10);
+	
+	$("#total").html(newTotal+'$');
+	
+
+}
