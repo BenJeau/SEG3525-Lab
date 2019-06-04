@@ -19,15 +19,19 @@ $(document).ready(() => {
 				var plat = val.id;
 				var prix = el.price * val.quantity;
 				total = total+ prix;
+				prix = parseFloat(prix).toFixed(2);
 				$("#address-fields table").append(
 					`<tr >
 						<td>${plat} (${val.quantity})</td>
-						<td>${prix}</td>
+						<td>${prix}$</td>
 						<td><button onClick="Remove(this)" id="${plat}" value="${prix}" style="font-size:24px;color:white;background: transparent; border: none;"> <i class="fa fa-minus"></i></button></td>
 					</tr>`
 				)
 				
 			});
+
+			
+			total = parseFloat(total).toFixed(2);
 			$("#address-fields table").append(
 				`<tr class="total-row ">
 					<td >Total : </td>
@@ -73,10 +77,12 @@ function Remove(o){
 			var p = $("#total").html();
 			var total = parseInt(p,10);
 			var newTotal = total - m.price;
+			newTotal = parseFloat(newTotal).toFixed(2);	
 			$("#total").html(newTotal +"$");
 			o.value = prix;
+			prix = parseFloat(prix).toFixed(2);
 			$("body").find(o.closest('tr')).find('td').eq(0).html(plat +" ("+newEl.quantity+")");
-			$("body").find(o.closest('tr')).find('td').eq(1).html(prix);
+			$("body").find(o.closest('tr')).find('td').eq(1).html(prix + "$");
 			if(newTotal == 0){
 				$("#btn").attr("href", "#");
 			}
@@ -87,6 +93,7 @@ function Remove(o){
 			var p = $("#total").html();
 			var total = parseInt(p,10);
 			var newTotal = total - parseInt(o.value, 10);
+			newTotal = parseFloat(newTotal).toFixed(2);
 			$("#total").html(newTotal+'$');
 			if(newTotal == 0){
 				$("#btn").attr("href", "#");
