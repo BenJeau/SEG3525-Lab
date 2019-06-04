@@ -16,6 +16,7 @@ a, p, h1, h2, h3, ul, li, div, button {
 button {
 	border: none;
 }
+
 button:focus {
 	outline: none;
 }
@@ -204,7 +205,17 @@ div .content {
     color: white;
     background-color: #c74b4b;
     box-shadow: 1px 1px 7px rgb(97, 96, 96);
-    transition: 0.2s ease;
+	transition: 0.2s ease;
+	user-select: none;
+}
+
+.button:disabled,
+.button[disabled],
+.button:disabled:hover {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: default;
+  box-shadow: none;
 }
 
 .button:hover {

@@ -39,7 +39,7 @@ $(document).ready(() => {
 				</tr>`
 			)
 			if(total == 0){
-				$("#btn").attr("href", "#");
+				$("#btn button").attr("disabled", true);
 			}
 		});
 		
@@ -84,7 +84,7 @@ function Remove(o){
 			$("body").find(o.closest('tr')).find('td').eq(0).html(plat +" ("+newEl.quantity+")");
 			$("body").find(o.closest('tr')).find('td').eq(1).html(prix + "$");
 			if(newTotal == 0){
-				$("#btn").attr("href", "#");
+				$("#btn button").attr("disabled", true);
 			}
 		
 		}else{
@@ -96,7 +96,7 @@ function Remove(o){
 			newTotal = parseFloat(newTotal).toFixed(2);
 			$("#total").html(newTotal+'$');
 			if(newTotal == 0){
-				$("#btn").attr("href", "#");
+				$("#btn button").attr("disabled", true);
 			}
 
 		}
