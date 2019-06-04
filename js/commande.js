@@ -34,7 +34,9 @@ $(document).ready(() => {
 					<td id="total">${total}$</td>
 				</tr>`
 			)
-			
+			if(total == 0){
+				$("#btn").attr("href", "#");
+			}
 		});
 		
 	
@@ -68,32 +70,16 @@ function Remove(o){
 			var plat = newEl.id;
 			menucopy.splice(i, 0, newEl);
 			localStorage.setItem("menuItemIndex", JSON.stringify(menucopy));
-			var newtd = `
-			<td>${plat} (${newEl.quantity})</td>
-			<td>${prix}</td>
-			<td><button onClick="Remove(this)" id="${plat}" value="${prix}" style="font-size:24px;color:white;background: transparent; border: none;"> <i class="fa fa-minus"></i></button></td>
-		`
-			o.closest('tr').remove();
-			$("#address-fields table").append(
-				`<tr >
-					<td>${plat} (${newEl.quantity})</td>
-					<td>${prix}</td>
-					<td><button onClick="Remove(this)" id="${plat}" value="${prix}" style="font-size:24px;color:white;background: transparent; border: none;"> <i class="fa fa-minus"></i></button></td>
-				</tr>`
-			)
 			var p = $("#total").html();
 			var total = parseInt(p,10);
 			var newTotal = total - m.price;
-			$("#total").closest('tr').remove();
-			$("#address-fields table").append(
-				`<tr class="total-row ">
-					<td >Total : </td>
-					<td id="total">${newTotal}$</td>
-				</tr>`
-			)
-			
-			
-			
+			$("#total").html(newTotal +"$");
+			o.value = prix;
+			$("body").find(o.closest('tr')).find('td').eq(0).html(plat +" ("+newEl.quantity+")");
+			$("body").find(o.closest('tr')).find('td').eq(1).html(prix);
+			if(newTotal == 0){
+				$("#btn").attr("href", "#");
+			}
 		
 		}else{
 			localStorage.setItem("menuItemIndex", JSON.stringify(menucopy));
@@ -102,12 +88,15 @@ function Remove(o){
 			var total = parseInt(p,10);
 			var newTotal = total - parseInt(o.value, 10);
 			$("#total").html(newTotal+'$');
+			if(newTotal == 0){
+				$("#btn").attr("href", "#");
+			}
 
 		}
+		
 	});
 	
 
-	;
-	
-
 }
+
+
