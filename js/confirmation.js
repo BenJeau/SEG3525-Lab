@@ -5,6 +5,11 @@ $(document).ready(() => {
 	$('input[type=radio]').on('change', function() {
 		updateContent();
 	 });
+	 $("form").submit(function(e){
+		
+		alert("Votre commande a été envoyé")
+		return true;
+	 });
 });
 
 const updateTotal = () => {
