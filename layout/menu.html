@@ -60,6 +60,17 @@
 			opacity: 0;
 			transition: opacity 0.5s ease;
 		}
+
+		#cart {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+
+		#cart p {
+			color: black;
+			font-weight: 900;
+		}
        
     </style>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -76,16 +87,16 @@
 						<a href="/">
 							<img src="../img/icon.png" id="logo">
 						</a>
-                    <div id="cart">
-                        <a href="commande.html">
+                    <a href="commande.html" id="cart">
+								<p>Voir repas</p>
+                        <div style="height: 45px; padding-left: 5px">
                             <input type="image" src="../img/icons/shopping-cart.svg" width="45" hr >
 
                             <div id="number">
-
 								<p></p>
 							</div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
         </header>
 
