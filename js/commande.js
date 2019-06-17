@@ -2,7 +2,8 @@ $(document).ready(() => {
 	var restaurant = localStorage.getItem("restaurant");
 	var menuItemIndex = JSON.parse(localStorage.getItem("menuItemIndex"));
 	var menu = [];
-	if(menuItemIndex != null && restaurant != null ){
+	if (!menuItemIndex) menuItemIndex = [];
+	if( restaurant != null ){
 		$.getJSON(`../data/menu.json`, data =>{
 			data[restaurant].forEach((val, key) => {
 				
