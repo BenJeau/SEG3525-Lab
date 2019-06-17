@@ -3,6 +3,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setRestaurant } from '../redux/actions';
+import { Button } from 'react-native-paper';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -12,19 +13,15 @@ const instructions = Platform.select({
 });
 
 class App extends Component {
-
-	constructor(props) {
-		super(props);
-
-		this.props.setRestaurant("rers");
-		this.props.restaurant;
-	}
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native! Allo diedrick</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
+		<Button mode="contained" onPress={() => this.props.navigation.navigate("Restaurants")}>
+			Next screen
+		</Button>
       </View>
     );
   }
