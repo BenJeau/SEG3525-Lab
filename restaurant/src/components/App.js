@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { setRestaurant } from '../redux/actions';
 
 const instructions = Platform.select({
@@ -15,7 +16,6 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		this.props.dispatch(setRestaurant("Mcdonalds"));
 		this.props.setRestaurant("rers");
 		this.props.restaurant;
 	}
