@@ -1,13 +1,7 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import { connect } from 'react-redux';
+import { setRestaurant } from '../redux/actions';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -16,18 +10,38 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+class App extends Component {
+
+	constructor(props) {
+		super(props);
+
+		this.props.dispatch(setRestaurant("Mcdonalds"));
+		this.props.setRestaurant("rers");
+		this.props.restaurant;
+	}
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
+        <Text style={styles.welcome}>Welcome to React Native! Allo fgnsfdjgnfdsgkj</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
       </View>
     );
   }
 }
+
+const mapState = state => {
+	return {
+		restaurant: state.UserReducer.restaurant
+	};
+};
+
+const mapDispatch = dispatch => {
+	return bindActionCreators({ setRestaurant }, dispatch);
+};
+
+
+export default connect(mapState, mapDispatch)(App);
 
 const styles = StyleSheet.create({
   container: {
