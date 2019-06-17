@@ -12,13 +12,6 @@ const instructions = Platform.select({
 });
 
 class App extends Component {
-
-	constructor(props) {
-		super(props);
-
-		this.props.setRestaurant("rers");
-		this.props.restaurant;
-	}
   render() {
     return (
       <View style={styles.container}>
