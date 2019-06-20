@@ -1,23 +1,68 @@
-import { AppRegistry } from 'react-native';
+import { AppRegistry, StatusBar } from 'react-native';
 import React from 'react';
 import { name as appName } from './app.json';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './src/redux/store/index';
-import { Provider as PaperProvider } from 'react-native-paper';
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { Home, Commande, Menu, Restaurants, Paiement } from './src/components';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
+const theme = {
+	...DefaultTheme,
+	colors: {
+		...DefaultTheme.colors,
+		primary: '#c74b4b',
+		accent: '#c74b4b',
+	}
+};
+
+StatusBar.setBackgroundColor('white');
+StatusBar.setBarStyle('dark-content');
+
 const MainNavigator = createStackNavigator(
 	{
-		Home,
-		Commande,
-		Menu,
-		Restaurants,
-		Paiement
+		Home: {
+			screen: Home,
+			navigationOptions: ({ navigation }) => ({
+				title: 'Home',
+				header: null
+			}),
+		  },
+		Commande: {
+			screen: Commande,
+			navigationOptions: ({ navigation }) => ({
+			  title: 'Commande',
+			}),
+		  },
+		Menu: {
+			screen: Menu,
+			navigationOptions: ({ navigation }) => ({
+			  title: 'Menu',
+			}),
+		  },
+		Restaurants: {
+			screen: Restaurants,
+			navigationOptions: ({ navigation }) => ({
+			  title: 'Restaurants',
+			}),
+		  },
+		Paiement: {
+			screen: Paiement,
+			navigationOptions: ({ navigation }) => ({
+			  title: 'Paiement',
+			}),
+		  },
 	},
 	{
-		initialRouteName: 'Home'
+		initialRouteName: 'Home',
+		defaultNavigationOptions: {
+      headerStyle: {
+				elevation: 0,
+				shadowOpacity: 0,
+				borderBottomWidth: 0,
+			}
+    },
 	}
 );
 
@@ -28,7 +73,7 @@ export default function Main() {
 		<Provider store={store}>
 			<PersistGate loading={null}
 				persistor={persistor}>
-				<PaperProvider>
+				<PaperProvider theme={theme}>
 					<AppContainer />
 				</PaperProvider>
 			</PersistGate>

@@ -6,8 +6,7 @@ import { Button } from 'react-native-paper';
 class Commande extends React.PureComponent {
 	render() {
 		return(
-			<View>
-				<Text>Commande</Text>
+			<View style={styles.container}>
 				<Button mode="contained" onPress={() => this.props.navigation.navigate("Paiement")}>
 					Next screen
 				</Button>
@@ -19,5 +18,8 @@ class Commande extends React.PureComponent {
 export default connect()(Commande);
 
 const styles = StyleSheet.create({
-
+	container: {
+	  flex: 1,
+	  padding: 20,
+	},
 });
