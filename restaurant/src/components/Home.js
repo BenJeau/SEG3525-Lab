@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setRestaurant } from '../redux/actions';
@@ -34,9 +34,16 @@ class App extends Component {
 
   componentDidMount() {
     this.props.navigation.addListener('willFocus', () => {
-      this.setState({
-        showSnackbar: this.props.navigation.getParam('showSnackbar', false)
-      })
+      let showSnackbar = this.props.navigation.getParam('showSnackbar', false);
+      // this.props.navigation.setParams({'showSnackbar': false});
+
+      if (showSnackbar) {
+        this.setState({
+          selectedCity: null,
+          selectedType: null,
+          showSnackbar
+        })
+      }
     });
   }
 
@@ -50,52 +57,53 @@ class App extends Component {
           <Text style={styles.description}>Déguster et régaler en famille</Text>
         </View>
         <View style={styles.bottomSection}>
-          <View style={styles.chipSection}>
-            <Text style={styles.chipTitle}>Veuillez choisir une ville</Text>
-
-            <View style={styles.chipGroup}>
-              {
-                cities.map((i, key) =>
-                  <Chip key={key}
-                    style={styles.chip}
-                    selected={selectedCity === key}
-                    onPress={() => this.setState({ selectedCity: selectedCity === key ? null : key })}>
-                    {i}
-                  </Chip>)
-              }
-            </View>
-
-            <Text style={styles.chipTitle}>Veuillez choisir un type de repas</Text>
-
-            <View style={styles.chipGroup}>
-              {
-                types.map((i, key) =>
-                  <Chip key={key}
-                    style={styles.chip}
-                    selected={selectedType === key}
-                    onPress={() => this.setState({ selectedType: selectedType === key ? null : key })}>
-                    {i}
-                  </Chip>)
-              }
-            </View>
+          <Text style={styles.chipTitle}>Veuillez choisir une ville</Text>
+          <View style={styles.chipGroup}>
+            {
+              cities.map((i, key) =>
+                <Chip key={key}
+                  style={styles.chip}
+                  selected={selectedCity === key}
+                  onPress={() => this.setState({ selectedCity: selectedCity === key ? null : key })}>
+                  {i}
+                </Chip>)
+            }
           </View>
+
+          <Text style={styles.chipTitle}>Veuillez choisir un type de repas</Text>
+          <View style={styles.chipGroup}>
+            {
+              types.map((i, key) =>
+                <Chip key={key}
+                  style={styles.chip}
+                  selected={selectedType === key}
+                  onPress={() => this.setState({ selectedType: selectedType === key ? null : key })}>
+                  {i}
+                </Chip>)
+            }
+          </View>
+        </View>
+        <View style={{ backgroundColor: "#9f3c3c", flex: 0.1, padding: 20, justifyContent: 'center' }}>
           <Button disabled={selectedType === null || selectedCity === null}
             mode="contained"
-            onPress={() => this.props.navigation.navigate("Restaurants")}>
+            onPress={() => this.props.navigation.navigate("Restaurants", { showSnackbar: false })}>
             Accéder les restaurants
         </Button>
         </View>
-          <Snackbar
-            visible={showSnackbar}
-            onDismiss={() => this.setState({ showSnackbar: false })}
-            action={{
-              label: 'Rejeter',
-              onPress: () => {
-                this.setState({ showSnackbar: false })
-              },
-            }}
-          >
-            Votre commande a été envoyé!
+        <Snackbar
+          visible={showSnackbar}
+          onDismiss={() => this.setState({ showSnackbar: false })}
+          style={{
+            alignSelf: 'center',
+            width: Dimensions.get("screen").width - 40
+          }}
+          action={{
+            label: 'Rejeter',
+            onPress: () => {
+              this.setState({ showSnackbar: false })
+            },
+          }}>
+          Votre commande a été envoyé!
         </Snackbar>
       </View>
     );
@@ -143,9 +151,10 @@ const styles = StyleSheet.create({
     padding: 20
   },
   bottomSection: {
+    width: '100%',
     backgroundColor: "#454545",
-    flex: 0.6,
-    justifyContent: 'space-evenly',
+    flex: 0.5,
+    justifyContent: 'flex-end',
     padding: 20
   },
   chip: {
@@ -159,10 +168,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
-  chipSection: {
-    flex: 0.65,
-    width: '100%'
-  },
   chipTitle: {
     color: "#fff",
     fontWeight: 'bold',
@@ -170,4 +175,3 @@ const styles = StyleSheet.create({
     paddingBottom: 10
   }
 });
-
