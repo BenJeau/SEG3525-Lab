@@ -59,6 +59,7 @@ const MainNavigator = createStackNavigator(
 		initialRouteName: 'Home',
 		defaultNavigationOptions: {
 			headerTransparent: true,
+			headerTintColor: '#000',
       headerStyle: {
 				elevation: 0,
 				shadowOpacity: 0,
