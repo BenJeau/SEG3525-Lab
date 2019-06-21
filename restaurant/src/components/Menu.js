@@ -58,7 +58,7 @@ class Menu extends React.PureComponent {
 			<View style={styles.container}>
 				<ScrollView>
 					<View style={styles.content}>
-						<Text style={styles.description}>Bienvenue au {this.props.id} </Text>
+						
 						{
 							menu['metcalfe'].map((i, key) =>
 								<MenuBlock key={key}
@@ -69,9 +69,10 @@ class Menu extends React.PureComponent {
 					</View>
 				</ScrollView>
 				<Button mode="contained" onPress={() => this.props.navigation.navigate("Commande")}>
-					Next screen
+					<Ionicons name= {Platform.OS === "ios" ? "ios-cart" : "md-cart"}
+					size={30}></Ionicons>
 				</Button>
-				<Ionicons name= {Platform.OS === "ios" ? "ios-cart" : "md-add"}></Ionicons>
+				
 			</View>
 		);
 	}
@@ -84,6 +85,7 @@ const styles = StyleSheet.create({
 	container: {
 	  flex: 1,
 	  padding: 20,
+	  backgroundColor: "#454545",
 	},
 	content: {
 		flex: 1,
@@ -104,6 +106,7 @@ const styles = StyleSheet.create({
 		margin: 5,
 	},
 	star: {
+		
 		fontSize: 20,
 		paddingHorizontal: 1,
 		color: 'black'
@@ -129,7 +132,8 @@ const styles = StyleSheet.create({
 	card: {
 		marginBottom: 20, 
 		borderRadius: 10, 
-		overflow: 'hidden'
+		overflow: 'hidden',
+		backgroundColor: "#ffffff"
 	},
 	cardContent: {
 		borderRadius: 10, 
