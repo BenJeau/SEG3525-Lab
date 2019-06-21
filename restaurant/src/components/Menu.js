@@ -2,7 +2,19 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { Button } from 'react-native-paper';
-
+import menu from '../data/menu.json';
+class MenuBlock extends React.PureComponent{
+	constructor(props){
+		super(props);
+	}
+	render(){
+		return(
+			<View>
+				
+			</View>
+		)
+	}
+}
 class Menu extends React.PureComponent {
 	render() {
 		return(

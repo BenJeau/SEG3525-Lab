@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, ImageBackground, ScrollView, StatusBar } from 'react-native';
+import { StyleSheet, View, Text, ImageBackground, ScrollView, StatusBar, TouchableOpacity, Platform } from 'react-native';
 import { Header } from 'react-navigation';
 import { connect } from 'react-redux';
 import { Chip } from 'react-native-paper';
@@ -9,6 +9,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { TouchableNativeFeedback } from 'react-native-gesture-handler';
 import { bindActionCreators } from 'redux';
 import { setRestaurant } from '../redux/actions';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 class RestaurantBlock extends React.PureComponent {
 	constructor(props) {
@@ -35,10 +36,8 @@ class RestaurantBlock extends React.PureComponent {
 		const { tags, address, priceRange, picture, hours, ratings, onPress, id } = this.props;
 		const { ratingValue } = this.state;
 
-		return (
-			<View style={styles.card}>
-				<TouchableNativeFeedback onPress={() => onPress(id)}>
-					<View style={styles.cardContent}>
+		let content = (
+			<View style={styles.cardContent}>
 						<ImageBackground style={styles.imageBackground}
 							imageStyle={styles.imageInnerBackground}
 							source={picture}>
@@ -99,7 +98,20 @@ class RestaurantBlock extends React.PureComponent {
 							</View>
 						</View>
 					</View>
-				</TouchableNativeFeedback>
+		)
+
+		return (
+			<View style={styles.card}>
+			{
+				Platform.OS === 'android' ? 
+				(<TouchableNativeFeedback onPress={() => onPress(id)}>
+					{content}
+				</TouchableNativeFeedback>) 
+				: 
+				(<TouchableOpacity onPress={() => onPress(id)}>
+					{content}
+				</TouchableOpacity>)
+			}
 			</View>
 		);
 	}
@@ -149,7 +161,8 @@ const styles = StyleSheet.create({
 	content: {
 		flex: 1,
 		padding: 20,
-		// paddingTop: 10 + StatusBar.currentHeight + Header.HEIGHT,
+		paddingTop: 10 + getStatusBarHeight() + Header.HEIGHT,
+
 		paddingBottom: 0
 	},
 	description: { 
