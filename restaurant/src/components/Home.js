@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { setRestaurant } from '../redux/actions';
 import { Button, Chip, Snackbar } from 'react-native-paper';
 
 const cities = [
@@ -35,7 +33,7 @@ class App extends Component {
   componentDidMount() {
     this.props.navigation.addListener('willFocus', () => {
       let showSnackbar = this.props.navigation.getParam('showSnackbar', false);
-      // this.props.navigation.setParams({'showSnackbar': false});
+      this.props.navigation.setParams({'showSnackbar': false});
 
       if (showSnackbar) {
         this.setState({
@@ -86,7 +84,7 @@ class App extends Component {
         <View style={{ backgroundColor: "#9f3c3c", flex: 0.1, padding: 20, justifyContent: 'center' }}>
           <Button disabled={selectedType === null || selectedCity === null}
             mode="contained"
-            onPress={() => this.props.navigation.navigate("Restaurants", { showSnackbar: false })}>
+            onPress={() => this.props.navigation.navigate("Restaurants")}>
             Accéder les restaurants
         </Button>
         </View>
@@ -110,17 +108,7 @@ class App extends Component {
   }
 }
 
-const mapState = state => {
-  return {
-    restaurant: state.UserReducer.restaurant
-  };
-};
-
-const mapDispatch = dispatch => {
-  return bindActionCreators({ setRestaurant }, dispatch);
-};
-
-export default connect(mapState, mapDispatch)(App);
+export default connect()(App);
 
 const styles = StyleSheet.create({
   container: {

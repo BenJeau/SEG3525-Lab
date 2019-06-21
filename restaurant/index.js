@@ -17,7 +17,8 @@ const theme = {
 	}
 };
 
-StatusBar.setBackgroundColor('white');
+StatusBar.setBackgroundColor('#ffffffd0');
+StatusBar.setTranslucent(true);
 StatusBar.setBarStyle('dark-content');
 
 const MainNavigator = createStackNavigator(
@@ -57,10 +58,13 @@ const MainNavigator = createStackNavigator(
 	{
 		initialRouteName: 'Home',
 		defaultNavigationOptions: {
+			headerTransparent: true,
       headerStyle: {
 				elevation: 0,
 				shadowOpacity: 0,
 				borderBottomWidth: 0,
+				marginTop: StatusBar.currentHeight,
+				backgroundColor: '#ffffffd0'
 			}
     },
 	}
