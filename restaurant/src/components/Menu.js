@@ -1,14 +1,18 @@
 import React from 'react';
-import { StyleSheet, View, Text, ImageBackground, ScrollView, StatusBar, TouchableOpacity, Platform } from 'react-native';
+
+import { StyleSheet, View, Text, ImageBackground, ScrollView, Platform } from 'react-native';
 import { Header } from 'react-navigation';
+
 import { connect } from 'react-redux';
-import { Chip } from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Button } from 'react-native-paper';
+
 import menu from '../data/menu';
-;
-import LinearGradient from 'react-native-linear-gradient';
-import { TouchableNativeFeedback } from 'react-native-gesture-handler';
+
+
+import { getStatusBarHeight } from 'react-native-iphone-x-helper';
+
+
 
 class MenuBlock extends React.PureComponent{
 	constructor(props){
@@ -54,8 +58,9 @@ class Menu extends React.PureComponent {
 		  
 	}
 	render() {
-		return(
+		return (
 			<View style={styles.container}>
+
 				<ScrollView>
 					<View style={styles.content}>
 						
@@ -72,7 +77,7 @@ class Menu extends React.PureComponent {
 					<Ionicons name= {Platform.OS === "ios" ? "ios-cart" : "md-cart"}
 					size={30}></Ionicons>
 				</Button>
-				
+
 			</View>
 		);
 	}
@@ -83,17 +88,12 @@ export default connect()(Menu);
 
 const styles = StyleSheet.create({
 	container: {
+
 	  flex: 1,
 	  padding: 20,
 	  backgroundColor: "#454545",
 	},
-	content: {
-		flex: 1,
-		padding: 20,
-		
-
-		paddingBottom: 0
-	},
+	
 	description: { 
 		paddingBottom: 10, 
 		color: 'black'
@@ -170,10 +170,11 @@ const styles = StyleSheet.create({
 		flexDirection: 'row', 
 		justifyContent: 'space-between'
 	},
-	numRating: {
-		paddingLeft: 10
-	},
-	day: {
-		color: 'black'
+
+	content: {
+		flex: 1,
+		padding: 20,
+		paddingTop: 10 + getStatusBarHeight() + Header.HEIGHT,
+
 	}
 });
