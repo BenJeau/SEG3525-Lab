@@ -8,8 +8,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Button } from 'react-native-paper';
 
 import menu from '../data/menu';
-
-
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 
 
