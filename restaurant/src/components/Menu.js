@@ -63,7 +63,7 @@ class Menu extends React.PureComponent {
 					<View style={styles.content}>
 						
 						{
-							menu['metcalfe'].map((i, key) =>
+							menu[this.props.restaurant].map((i, key) =>
 								<MenuBlock key={key}
 									id={i.id}
 									price={i.price}
@@ -81,8 +81,13 @@ class Menu extends React.PureComponent {
 	}
 }
 
+const mapState = state => {
+	return {
+		restaurant: state.UserReducer.restaurant
+	};
+};
 
-export default connect()(Menu);
+export default connect(mapState)(Menu);
 
 const styles = StyleSheet.create({
 	container: {
