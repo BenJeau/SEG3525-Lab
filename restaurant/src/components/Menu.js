@@ -23,7 +23,8 @@ class MenuBlock extends React.PureComponent{
 			<View style={styles.card}>
 				<ImageBackground style={styles.imageBackground}
 							imageStyle={styles.imageInnerBackground}
-							source={src}>
+							source={src}
+							>
 							
 						</ImageBackground>
 						<View style={styles.bottomCard}>
@@ -56,6 +57,7 @@ class Menu extends React.PureComponent {
 		  
 	}
 	render() {
+	
 		return (
 			<View style={styles.container}>
 

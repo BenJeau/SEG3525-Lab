@@ -41,13 +41,13 @@ export default
 		{
 			"id":"Soupe",
 			"price": "8.25",
-			"img": require(`.../assets/menu/soupe.jpg`)
+			"img": require(`../assets/menu/soupe.jpg`)
 		},
-		{
-			"id":"Salade",
-			"price": "11.50",
-			"img": require(`../assets/menu/salade.jpg`)
-		}
+		// {
+		// 	"id":"Salade",
+		// 	"price": "11.50",
+		// 	"img": require(`../assets/menu/salade.jpg`)
+		// }
 	],
 	"george": [
 		{
@@ -55,11 +55,11 @@ export default
 			"price": "15.50",
 			"img": require(`../assets/menu/IceCream.jpg`)
 		},
-		{
-			"id":"Salade",
-			"price": "15.00",
-			"img": require(`../assets/menu/salade.jpg`)
-		},
+		// {
+		// 	"id":"Salade",
+		// 	"price": "15.00",
+		// 	"img": require(`../assets/menu/salade.jpg`)
+		// },
 		{
 			"id":"Spaghetti",
 			"price": "11.50",
