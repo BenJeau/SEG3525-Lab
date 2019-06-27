@@ -1,5 +1,7 @@
 import {
-	SET_RESTAURANT
+	SET_RESTAURANT,
+	ADDITEM,
+	
 } from "../reducers/constants";
 
 const setRestaurant = restaurant => {
@@ -9,6 +11,16 @@ const setRestaurant = restaurant => {
 	};
 };
 
+const addItem = newItem => {
+	return {
+		type : ADDITEM,
+		newItem,
+	}
+}
+
+
 export {
-	setRestaurant
+	setRestaurant,
+	addItem,
+	
 }

@@ -9,6 +9,8 @@ import { Button } from 'react-native-paper';
 
 import menu from '../data/menu';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
+import { addItem } from '../redux/actions';
+import { bindActionCreators } from 'redux';
 
 
 
@@ -18,7 +20,10 @@ class MenuBlock extends React.PureComponent{
 	}
 	render(){
 		const src = this.props.img;
-	
+		const o = {
+			id: this.props.id,
+			quantity: 1
+		}
 		return(
 			<View style={styles.card}>
 				<ImageBackground style={styles.imageBackground}
@@ -35,7 +40,7 @@ class MenuBlock extends React.PureComponent{
 									name={Platform.OS === "ios" ? "ios-add" : "md-add"}
 									color="#ccc"
 									size={25}
-									onPress={() => console.log(this.props.id+":"+ this.props.price)}
+									onPress={() => this.props.onAdd(o)}
 									/>
 									</View>
 								</View>
@@ -69,7 +74,8 @@ class Menu extends React.PureComponent {
 								<MenuBlock key={key}
 									id={i.id}
 									price={i.price}
-									img={i.img} />)
+									img={i.img}
+									onAdd = {this.props.addItem}  />)
 						}
 					</View>
 				</ScrollView>
@@ -77,7 +83,7 @@ class Menu extends React.PureComponent {
 					<Ionicons name= {Platform.OS === "ios" ? "ios-cart" : "md-cart"}
 					size={30}></Ionicons>
 				</Button>
-
+				
 			</View>
 		);
 	}
@@ -85,11 +91,15 @@ class Menu extends React.PureComponent {
 
 const mapState = state => {
 	return {
-		restaurant: state.UserReducer.restaurant
+		restaurant: state.UserReducer.restaurant,
+	
 	};
 };
+const mapDispatch = dispatch => {
+	return bindActionCreators({ addItem }, dispatch);
+};
 
-export default connect(mapState)(Menu);
+export default connect(mapState, mapDispatch)(Menu);
 
 const styles = StyleSheet.create({
 	container: {
