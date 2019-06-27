@@ -1,6 +1,7 @@
 import {
 	SET_RESTAURANT,
-	ADDITEM
+	ADDITEM,
+	REMOVEITEM
 	
 } from './constants';
 
@@ -44,7 +45,23 @@ export default function UserReducer(state = defaultState, action) {
 				...state
 			}
 		
-		
+		case REMOVEITEM :
+				var el = state.items.find((val) => val.id === action.item.id);
+				var i =  state.items.indexOf(el);
+				var itemsCopy = state.items.filter((val) => val.id !== action.item.id)
+				if(el.quantity-1 != 0){
+					var newEl={
+						id: el.id,
+						quantity: el.quantity-1
+					}
+					itemsCopy.splice(i, 0, newEl);
+					state.items = itemsCopy;
+
+				}
+				state.items = itemsCopy;
+				return{
+					...state
+				}
 		default:
 			return state;
 	}

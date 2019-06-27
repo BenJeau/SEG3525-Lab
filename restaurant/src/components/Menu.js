@@ -6,7 +6,7 @@ import { Header } from 'react-navigation';
 import { connect } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Button } from 'react-native-paper';
-
+import { IconButton, Colors } from 'react-native-paper';
 import menu from '../data/menu';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { addItem } from '../redux/actions';
@@ -36,12 +36,14 @@ class MenuBlock extends React.PureComponent{
 							<View style={styles.Info}>
 								<View  style={styles.InfoRow}>
 									<Text style={styles.day}>{this.props.id}</Text>
-									<Ionicons
-									name={Platform.OS === "ios" ? "ios-add" : "md-add"}
-									color="#ccc"
-									size={25}
-									onPress={() => this.props.onAdd(o)}
+									
+									<IconButton
+										icon="add"
+										color={Colors.red500}
+										size={25}
+										onPress={() => this.props.onAdd(o)}
 									/>
+									
 									</View>
 								</View>
 							
