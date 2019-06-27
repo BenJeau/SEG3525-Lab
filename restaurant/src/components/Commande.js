@@ -54,7 +54,7 @@ class Commande extends React.PureComponent {
 	render() {
 		const orders = [];
 		var tot = 0;
-
+		var disableBtn = false;
 		this.props.items.map((el) => {
 			const m = menu[this.props.restaurant].find((val) => val.id === el.id);
 			const order ={
@@ -67,7 +67,9 @@ class Commande extends React.PureComponent {
 			orders.push(order);
 
 		});
-	
+		if(tot == 0){
+			disableBtn = true;
+		}
 		return(
 			<View style={styles.container}>
 			<ScrollView style={styles.content}>
@@ -82,10 +84,13 @@ class Commande extends React.PureComponent {
 					/>
 
 					)}
-				<View style={styles.card}>
-					<Text>Total : {tot}$</Text>
+				<View style={styles.Total}>
+					<Text fontSize="20px">Total : {tot}$</Text>
 					</View>	
-				<Button mode="contained" onPress={() => this.props.navigation.navigate("Paiement")}>
+					{
+						disableBtn && <Text style={{color:"red"}}>Veuillez ajouter des items</Text>
+					}
+				<Button mode="contained" onPress={() => this.props.navigation.navigate("Paiement")} disabled={disableBtn}>
 					Confirmer
 				</Button>
 				</ScrollView>
@@ -149,5 +154,14 @@ const styles = StyleSheet.create({
 	}, 
 	first:{
 		flex:0.5
+	},
+	Total: {
+		justifyContent:"center",
+		padding: 20,
+		borderColor: '#ddd',
+		borderWidth: 1, 
+		marginBottom: 10,
+		fontSize: 500
 	}
+	
 });
