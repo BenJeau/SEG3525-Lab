@@ -5,7 +5,8 @@ import { Button, RadioButton, TextInput, HelperText } from 'react-native-paper';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { Header } from 'react-navigation';
 import { Dropdown } from 'react-native-material-dropdown';
-
+import { bindActionCreators } from 'redux';
+import { clearItems } from '../redux/actions';
 
 class Paiement extends React.PureComponent {
 	constructor(props) {
@@ -45,15 +46,8 @@ class Paiement extends React.PureComponent {
 		};
 	}
 
-	helper = (variable, isfilled) => {
-		if(this.state[variable] == null || this.state[variable] == '' ){
-			this.setState({[variable]: ''})
-			isfilled = false
-		} 
-		
-	}
+	
 	validate = (paymentState) => {
-		//include your validation inside if condition
 		
 		let isfilled = true;
 		let variables = ['ville', 'numRue', 'nomRue', 'codePostal', 'pays' ];
@@ -68,7 +62,7 @@ class Paiement extends React.PureComponent {
 			variables.push('cvv')
 		}
 		variables.forEach((i) => {
-			// this.helper(i, isfilled)
+			
 			if(this.state[i] == null || this.state[i] == '' ){
 				this.setState({[i]: ''})
 				isfilled = false
@@ -76,6 +70,8 @@ class Paiement extends React.PureComponent {
 		});
 		if(isfilled){
 			this.props.navigation.navigate("Home", { showSnackbar: true })
+			
+			
 		}
 	}
 
@@ -139,6 +135,7 @@ class Paiement extends React.PureComponent {
 						mode='outlined'
 						style={styles.textInput}
 						value={this.state.numCarte}
+						keyboardType="number-pad"
 						onChangeText={numCarte => this.setState({ numCarte })} />
 					<HelperText
 						type="error"
@@ -203,6 +200,7 @@ class Paiement extends React.PureComponent {
 									mode='outlined'
 									style={styles.textInput}
 									value={this.state.numRue}
+									keyboardType="number-pad"
 									onChangeText={numRue => this.setState({ numRue })} />
 								<HelperText
 									type="error"
@@ -288,8 +286,17 @@ class Paiement extends React.PureComponent {
 		);
 	}
 }
+const mapState = state => {
+	return {
+		items: state.UserReducer.items
+	};
+};
 
-export default connect()(Paiement);
+const mapDispatch = dispatch => {
+	return bindActionCreators({ clearItems }, dispatch);
+};
+
+export default connect(mapState, mapDispatch)(Paiement);
 
 const styles = StyleSheet.create({
 	container: {

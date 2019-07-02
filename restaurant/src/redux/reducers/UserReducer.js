@@ -1,7 +1,8 @@
 import {
 	SET_RESTAURANT,
 	ADDITEM,
-	REMOVEITEM
+	REMOVEITEM,
+	CLEAR_ITEMS
 	
 } from './constants';
 
@@ -61,6 +62,12 @@ export default function UserReducer(state = defaultState, action) {
 				state.items = itemsCopy;
 				return{
 					...state
+				}
+
+		case CLEAR_ITEMS: 
+				return {
+					...state,
+					items: []
 				}
 		default:
 			return state;

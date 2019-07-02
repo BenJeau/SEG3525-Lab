@@ -8,7 +8,7 @@ import restaurants from '../data/restaurants';
 import LinearGradient from 'react-native-linear-gradient';
 import { TouchableNativeFeedback } from 'react-native-gesture-handler';
 import { bindActionCreators } from 'redux';
-import { setRestaurant } from '../redux/actions';
+import { setRestaurant, clearItems } from '../redux/actions';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 class RestaurantBlock extends React.PureComponent {
@@ -120,6 +120,7 @@ class RestaurantBlock extends React.PureComponent {
 class Restaurant extends React.PureComponent {
 	nextScreen = (id) => {
 		this.props.setRestaurant(id)
+		this.props.clearItems();
 		this.props.navigation.navigate("Menu")
 	}
 
@@ -149,7 +150,7 @@ class Restaurant extends React.PureComponent {
 }
 
 const mapDispatch = dispatch => {
-	return bindActionCreators({ setRestaurant }, dispatch);
+	return bindActionCreators({ setRestaurant, clearItems }, dispatch);
 };
 
 export default connect(null, mapDispatch)(Restaurant);

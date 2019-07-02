@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { Button, Chip, Snackbar } from 'react-native-paper';
+import { bindActionCreators } from 'redux';
+import { clearItems } from '../redux/actions';
 
 const cities = [
   "Ottawa, ON",
@@ -41,6 +43,8 @@ class App extends Component {
           selectedType: null,
           showSnackbar
         })
+
+			this.props.clearItems();
       }
     });
   }
@@ -110,7 +114,10 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+const mapDispatch = dispatch => {
+	return bindActionCreators({ clearItems }, dispatch);
+};
+export default connect(null, mapDispatch)(App);
 
 const styles = StyleSheet.create({
   container: {
