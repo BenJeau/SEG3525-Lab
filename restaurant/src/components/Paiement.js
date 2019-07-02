@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView, Text, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, KeyboardAvoidingView, Alert } from 'react-native';
 import { connect } from 'react-redux';
-import { Button, RadioButton, TextInput } from 'react-native-paper';
+import { Button, RadioButton, TextInput, HelperText } from 'react-native-paper';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { Header } from 'react-navigation';
 import { Dropdown } from 'react-native-material-dropdown';
@@ -12,6 +12,7 @@ class Paiement extends React.PureComponent {
 		super(props);
 
 		this.state = {
+			
 			paymentState: 'first',
 			months: [
 				{ value: 'Janvier', },
@@ -44,6 +45,40 @@ class Paiement extends React.PureComponent {
 		};
 	}
 
+	helper = (variable, isfilled) => {
+		if(this.state[variable] == null || this.state[variable] == '' ){
+			this.setState({[variable]: ''})
+			isfilled = false
+		} 
+		
+	}
+	validate = (paymentState) => {
+		//include your validation inside if condition
+		
+		let isfilled = true;
+		let variables = ['ville', 'numRue', 'nomRue', 'codePostal', 'pays' ];
+		if(paymentState == 'second' ){
+			variables.push('nomComplet')
+			variables.push('numCarte')
+			
+		}
+		else if(paymentState == 'first'){
+			variables.push('nomComplet')
+			variables.push('numCarte')
+			variables.push('cvv')
+		}
+		variables.forEach((i) => {
+			// this.helper(i, isfilled)
+			if(this.state[i] == null || this.state[i] == '' ){
+				this.setState({[i]: ''})
+				isfilled = false
+			} 
+		});
+		if(isfilled){
+			this.props.navigation.navigate("Home", { showSnackbar: true })
+		}
+	}
+
 	render() {
 		const { paymentState } = this.state;
 
@@ -59,12 +94,24 @@ class Paiement extends React.PureComponent {
 
 		switch (paymentState) {
 			case 'first':
-				CVV = (<TextInput
+				CVV = (
+					<View>
+					<TextInput
 					label='CVV'
 					mode='outlined'
 					style={styles.textInput}
 					value={this.state.cvv}
-					onChangeText={cvv => this.setState({ cvv })} />)
+					keyboardType="number-pad"
+					onChangeText={cvv => this.setState({ cvv })} />
+
+					<HelperText
+						type="error"
+						visible={this.state.cvv == ""}
+						>
+						Le cvv est necessaire
+					</HelperText>
+					</View>
+					)
 				break;
 			case 'second':
 				break;
@@ -80,6 +127,12 @@ class Paiement extends React.PureComponent {
 						style={styles.textInput}
 						value={this.state.nomComplet}
 						onChangeText={nomComplet => this.setState({ nomComplet })} />
+					<HelperText
+						type="error"
+						visible={this.state.nomComplet == ""}
+						>
+						Le Nom au complet est necessaire
+					</HelperText>
 
 					<TextInput
 						label='Numéro de carte'
@@ -87,6 +140,12 @@ class Paiement extends React.PureComponent {
 						style={styles.textInput}
 						value={this.state.numCarte}
 						onChangeText={numCarte => this.setState({ numCarte })} />
+					<HelperText
+						type="error"
+						visible={this.state.numCarte == ""}
+						>
+						Le numero de la carte est necessaire
+					</HelperText>
 					{CVV}
 
 					<Dropdown
@@ -145,13 +204,25 @@ class Paiement extends React.PureComponent {
 									style={styles.textInput}
 									value={this.state.numRue}
 									onChangeText={numRue => this.setState({ numRue })} />
-
+								<HelperText
+									type="error"
+									visible={this.state.numRue == ""}
+									>
+									Le numéro de la rue est necessaire
+								</HelperText>
 								<TextInput
 									label='Nom de rue'
 									mode='outlined'
 									style={styles.textInput}
 									value={this.state.nomRue}
 									onChangeText={nomRue => this.setState({ nomRue })} />
+								
+								<HelperText
+									type="error"
+									visible={this.state.nomRue == ""}
+									>
+									Le nom de la rue est necessaire
+								</HelperText>
 
 								<TextInput
 									label='Ville'
@@ -159,6 +230,13 @@ class Paiement extends React.PureComponent {
 									style={styles.textInput}
 									value={this.state.ville}
 									onChangeText={ville => this.setState({ ville })} />
+								
+								<HelperText
+									type="error"
+									visible={this.state.ville == '' }
+									>
+									Le ville est necessaire
+								</HelperText>
 
 								<TextInput
 									label='Code postal'
@@ -166,18 +244,30 @@ class Paiement extends React.PureComponent {
 									style={styles.textInput}
 									value={this.state.codePostal}
 									onChangeText={codePostal => this.setState({ codePostal })} />
-
+								
+								<HelperText
+									type="error"
+									visible={this.state.codePostal == ""}
+									>
+									Le code postal est necessaire
+								</HelperText>
 								<TextInput
 									label='Pays'
 									mode='outlined'
 									style={styles.textInput}
 									value={this.state.pays}
 									onChangeText={pays => this.setState({ pays })} />
+								<HelperText
+									type="error"
+									visible={this.state.pays == ""}
+									>
+									Le pays est necessaire
+								</HelperText>
 							</View>
 
 							<Text style={styles.title}>
 								Commentaire
-					</Text>
+							</Text>
 
 							<TextInput
 								mode='outlined'
@@ -188,9 +278,9 @@ class Paiement extends React.PureComponent {
 								onChangeText={comment => this.setState({ comment })}
 							/>
 
-							<Button mode="contained" style={{ marginTop: 20, marginBottom: 20 }} onPress={() => this.props.navigation.navigate("Home", { showSnackbar: true })}>
+							<Button mode="contained"  style={{ marginTop: 20, marginBottom: 20 }} onPress={() => this.validate(paymentState)}>
 								Confirmer le paiement
-					</Button>
+							</Button>
 						</View>
 					</KeyboardAvoidingView>
 				</ScrollView>
